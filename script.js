@@ -7,6 +7,14 @@ async function getDog() {
     }
   }
 
-  getDog().then((imgUrl) =>{
-    document.querySelector(".dogImg").setAttribute("src", imgUrl)
-  });
+  function updateImg(){
+        getDog().then((imgUrl) =>{
+        document.querySelector(".dogImg").setAttribute("src", imgUrl)
+        });
+    }
+
+
+  document.addEventListener("DOMContentLoaded", function(){
+    updateImg();
+    document.querySelector(".newDog").addEventListener("click", updateImg);
+  })
