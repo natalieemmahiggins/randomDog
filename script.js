@@ -9,8 +9,8 @@ async function getDog() {
 
   function updateImg(){
         getDog().then((imgUrl) =>{
-            if (imgUrl.endsWith("mp4")){
-                getDog()
+            if (imgUrl.endsWith("mp4") || imgUrl.endsWith("gif") || imgUrl.endsWith("webm") ){
+                updateImg()
             } else {
                 document.querySelector(".dogImg").setAttribute("src", imgUrl)
             }
