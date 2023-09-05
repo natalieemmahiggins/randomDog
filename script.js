@@ -9,7 +9,11 @@ async function getDog() {
 
   function updateImg(){
         getDog().then((imgUrl) =>{
-        document.querySelector(".dogImg").setAttribute("src", imgUrl)
+            if (imgUrl.endsWith("mp4")){
+                getDog()
+            } else {
+                document.querySelector(".dogImg").setAttribute("src", imgUrl)
+            }
         });
     }
 
