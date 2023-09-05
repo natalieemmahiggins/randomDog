@@ -1,11 +1,12 @@
-
 async function getDog() {
     try {
       const response = await axios.get('https://random.dog/woof.json');
-      console.log(response);
+      return(response.data.url);
     } catch (error) {
       console.error(error);
     }
   }
 
-  getDog();
+  getDog().then((imgUrl) =>{
+    document.querySelector(".dogImg").setAttribute("src", imgUrl)
+  });
